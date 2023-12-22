@@ -1,5 +1,6 @@
 package com.jesus.androidkotlin.firstapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,7 +19,9 @@ class FirstAppActivity : AppCompatActivity() {
             val name = etName.text.toString()
 
             if (name.isNotEmpty()) {
-                Log.i("Hola", "texto boton $name")
+                val intent = Intent(this, ResultActivity::class.java) //Nos permite lanzar y llevarnos cosas
+                intent.putExtra("EXTRA_NAME", name) //Le estamos pasando una key con el value del nombre
+                startActivity(intent)
             }
         }
     }
