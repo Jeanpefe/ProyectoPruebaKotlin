@@ -28,11 +28,15 @@ class ImcCalculatorActivity : AppCompatActivity() {
 
     private fun initListeners() {
         viewMale.setOnClickListener{
-            changeGender()
-            setGenderColor()}
+            if (!isMaleSelected) {
+                changeGender()
+                setGenderColor()}
+            }
         viewFemale.setOnClickListener{
-            changeGender()
-            setGenderColor()}
+            if (!isFemaleSelected) {
+                changeGender()
+                setGenderColor()}
+            }
     }
 
     private fun changeGender() {
