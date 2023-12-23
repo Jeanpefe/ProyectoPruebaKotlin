@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="16dp"
     android:paddingVertical="32dp"
-    tools:context=".imccalculator.ImcCalculatorActivity">
+    tools:context=".imccalculator.ImcCalculatorActivity"
+    android:background="@color/background_app">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/viewMale"
@@ -35,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Hombre"
+                android:text="@string/male"
                 android:textAllCaps="true"
                 android:textColor="@color/title_text"
                 android:textSize="16dp" />
@@ -69,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Mujer"
+                android:text="@string/female"
                 android:textAllCaps="true"
                 android:textColor="@color/title_text"
                 android:textSize="16dp" />
