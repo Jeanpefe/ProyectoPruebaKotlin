@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.jesus.androidkotlin.R
+import com.jesus.androidkotlin.imccalculator.ImcCalculatorActivity
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +22,7 @@ class MenuActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun navigateToImcApp(){
-        val intent = Intent(this, FirstAppActivity::class.java)
+        val intent = Intent(this, ImcCalculatorActivity::class.java)
         startActivity(intent)
     }
 }
