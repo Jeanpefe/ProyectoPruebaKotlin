@@ -136,27 +136,27 @@
         app:layout_constraintTop_toBottomOf="@+id/viewHeight">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/weight"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:text="@string/weight" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="60"
                 android:textColor="@color/white"
                 android:textSize="32dp"
-                />
+                tools:text="60" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -197,27 +197,27 @@
         app:layout_constraintTop_toBottomOf="@+id/viewHeight">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/age"
+                android:textAllCaps="true"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:text="@string/age" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="60"
                 android:textColor="@color/white"
                 android:textSize="32dp"
-                />
+                tools:text="60" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -245,5 +245,16 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/calculate"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewWeight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

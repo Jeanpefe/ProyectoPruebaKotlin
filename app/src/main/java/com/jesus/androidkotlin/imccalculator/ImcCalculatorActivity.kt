@@ -3,6 +3,7 @@ package com.jesus.androidkotlin.imccalculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -18,7 +19,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private var isFemaleSelected:Boolean = false
     private var currentWeight:Int = 70
     private var currentAge:Int = 30
-
+    private var currentHeight:Int = 120
     private lateinit var viewMale:CardView // El lateinit es para que se inicie cuando se lo pidamos
     private lateinit var viewFemale:CardView
     private lateinit var tvHeight:TextView
@@ -29,6 +30,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private lateinit var tvAge: TextView
     private lateinit var btnSubtractAge: FloatingActionButton
     private lateinit var btnPlusAge: FloatingActionButton
+    private lateinit var btnCalculate: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc_calculator)
@@ -48,6 +50,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
         tvAge = findViewById(R.id.tvAge)
         btnSubtractAge = findViewById(R.id.btnSubtractAge)
         btnPlusAge = findViewById(R.id.btnPlusAge)
+        btnCalculate = findViewById(R.id.btnCalculate)
     }
 
     private fun initListeners() {
@@ -62,7 +65,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
                 setGenderColor()}
             }
         rsHeight.addOnChangeListener{_, value, _ ->
-            tvHeight.text = DecimalFormat("#.##").format(value) + "cm"
+            currentHeight = DecimalFormat("#.##").format(value).toInt()
+            tvHeight.text = currentHeight.toString() + "cm"
         }
 
         btnPlusWeight.setOnClickListener{
@@ -83,6 +87,10 @@ class ImcCalculatorActivity : AppCompatActivity() {
         btnSubtractAge.setOnClickListener{
             currentAge -= 1
             tvAge.text = currentAge.toString()
+        }
+
+        btnCalculate.setOnClickListener{
+            calculateIMC()
         }
     }
 
@@ -118,5 +126,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
         setAge()
     }
 
-
+    private fun calculateIMC() {
+        val imc = currentWeight / (currentHeight.toDouble()/100 * currentHeight.toDouble()/100)
+        Log.i("imc", "imc es $imc")
+    }
 }
