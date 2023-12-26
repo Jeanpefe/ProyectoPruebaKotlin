@@ -6,5 +6,5 @@ Aplicación sencilla para navegar entre miniproyectos con Kotlin y AndroidStudio
 - Calculadora IMC
 
 # TODO
-- [] Poder elegir modo claro y modo oscuro
-- [] Mostrar el IMC
+- [ ] Poder elegir modo claro y modo oscuro
+- [ ] Mostrar el IMC
