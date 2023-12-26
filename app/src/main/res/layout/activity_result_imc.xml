@@ -38,6 +38,7 @@
             android:orientation="vertical"
             >
             <TextView
+                android:id="@+id/tvImc"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="16dp"
                 android:layout_width="wrap_content"
@@ -48,6 +49,7 @@
                 android:textSize="48dp"
                 />
             <TextView
+                android:id="@+id/tvImcDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Normal"
@@ -56,6 +58,7 @@
                 android:textSize="32dp"
                 />
             <TextView
+                android:id="@+id/tvImcFullDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Su IMC es normal"
