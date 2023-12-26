@@ -7,4 +7,5 @@
     <string name="weight">Peso</string>
     <string name="calculate">Calcular IMC</string>
     <string name="returnToCalculator">Volver</string>
+    <string name="resultImc">Resultado</string>
 </resources>

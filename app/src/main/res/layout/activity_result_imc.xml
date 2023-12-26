@@ -9,6 +9,17 @@
     android:paddingHorizontal="32dp"
     >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resultImc"
+        android:textColor="@color/white"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cvResultImc"
+        app:layout_constraintStart_toStartOf="@+id/cvResultImc"
+        android:layout_marginBottom="32dp"
+        />
     <androidx.cardview.widget.CardView
         android:id="@+id/cvResultImc"
         android:layout_width="300dp"
@@ -23,14 +34,35 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="25.42"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="48dp"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="IMC"
+                tools:text="Normal"
                 android:textStyle="bold"
-                android:textColor="@color/white"
+                android:textColor="@color/title_text"
                 android:textSize="32dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Su IMC es normal"
+                android:textStyle="bold"
+                android:textColor="@color/title_text"
+                android:textSize="20dp"
+                android:layout_marginTop="16dp"
                 />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
