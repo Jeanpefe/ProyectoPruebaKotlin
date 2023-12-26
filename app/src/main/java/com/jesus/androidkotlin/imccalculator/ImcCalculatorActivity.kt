@@ -1,5 +1,6 @@
 package com.jesus.androidkotlin.imccalculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -31,6 +32,10 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private lateinit var btnSubtractAge: FloatingActionButton
     private lateinit var btnPlusAge: FloatingActionButton
     private lateinit var btnCalculate: Button
+
+    companion object {
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc_calculator)
@@ -90,7 +95,9 @@ class ImcCalculatorActivity : AppCompatActivity() {
         }
 
         btnCalculate.setOnClickListener{
-            calculateIMC()
+            val imc = calculateIMC()
+            intent = Intent(this, ResultImcActivity::class.java)
+            intent.putExtra("IMC_RESULT", imc)
         }
     }
 
@@ -126,10 +133,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
         setAge()
     }
 
-    private fun calculateIMC() {
+    private fun calculateIMC():Double {
         val df = DecimalFormat("#.##")
-        val imc = df.format(currentWeight / (currentHeight.toDouble()/100 * currentHeight.toDouble()/100)).toDouble()
-
-        Log.i("imc", "imc es $imc")
+        return df.format(currentWeight / (currentHeight.toDouble()/100 * currentHeight.toDouble()/100)).toDouble()
     }
 }
