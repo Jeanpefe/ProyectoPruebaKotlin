@@ -8,3 +8,4 @@ Aplicación sencilla para navegar entre miniproyectos con Kotlin y AndroidStudio
 # TODO
 - [ ] Poder elegir modo claro y modo oscuro
 - [ ] Mostrar el IMC
+- [ ] Poner el botón de Calcular IMC y de Volver en la misma posición

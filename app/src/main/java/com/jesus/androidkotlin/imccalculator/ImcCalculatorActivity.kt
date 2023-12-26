@@ -33,9 +33,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private lateinit var btnPlusAge: FloatingActionButton
     private lateinit var btnCalculate: Button
 
-    companion object {
 
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_imc_calculator)
@@ -98,6 +96,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
             val imc = calculateIMC()
             intent = Intent(this, ResultImcActivity::class.java)
             intent.putExtra("IMC_RESULT", imc)
+            Log.i("tonto", "holaaaaaa")
+            startActivity(intent)
         }
     }
 
