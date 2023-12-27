@@ -26,4 +26,9 @@
         android:text="@string/todo_categories"
         android:textColor="@color/todo_subtitle_text"
         android:textAllCaps="true"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
