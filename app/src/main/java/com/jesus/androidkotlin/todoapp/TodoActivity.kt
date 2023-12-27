@@ -12,9 +12,14 @@ class TodoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo)
         initComponent()
+        initUI()
     }
 
     private fun initComponent() {
         rvCategories = findViewById(R.id.rvCategories)
+    }
+
+    private fun initUI() {
+
     }
 }
