@@ -96,7 +96,6 @@ class ImcCalculatorActivity : AppCompatActivity() {
             val imc = calculateIMC()
             intent = Intent(this, ResultImcActivity::class.java)
             intent.putExtra("IMC_RESULT", imc)
-            Log.i("tonto", "$imc")
             startActivity(intent)
         }
     }

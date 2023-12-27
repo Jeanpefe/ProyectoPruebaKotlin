@@ -1,4 +1,5 @@
 <resources>
+    <!-- IMC -->
     <string name="app_name">AndroidKotlin</string>
     <string name="male">Hombre</string>
     <string name="female">Mujer</string>
@@ -8,4 +9,8 @@
     <string name="calculate">Calcular IMC</string>
     <string name="returnToCalculator">Volver</string>
     <string name="resultImc">Resultado</string>
+
+    <!-- TODOAPP -->
+    <string name="todo_title">Quehaceres App</string>
+    <string name="todo_categories">Categorías</string>
 </resources>

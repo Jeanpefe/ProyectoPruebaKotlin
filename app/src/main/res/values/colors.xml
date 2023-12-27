@@ -15,13 +15,13 @@
     <color name="title_text">#FF8D8E98</color>
 
     <!--TodoApp-->
-    <color name="todo_background_card">#FF081A4A</color>
+    <color name="todo_background_card">#051956</color>
     <color name="todo_background_disabled">#787878</color>
-    <color name="todo_background_todo_app">#314F9E</color>
-    <color name="todo_subtitle_text">#959595</color>
-    <color name="todo_accent">#5A349F</color>
+    <color name="todo_background_todo_app">#3451a1</color>
+    <color name="todo_subtitle_text">#7D80AA</color>
+    <color name="todo_accent">#f406ff</color>
 
-    <color name="todo_business_category">#5E34AA</color>
-    <color name="todo_personal_category">#00BCD4</color>
+    <color name="todo_business_category">#9e29ce</color>
+    <color name="todo_personal_category">#316fd4</color>
     <color name="todo_other_category">#4CAF50</color>
 </resources>
