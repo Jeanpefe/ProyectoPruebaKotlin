@@ -22,4 +22,12 @@
         android:layout_marginTop="15sp"
         android:text="IMCApp"
         />
+
+    <Button
+        android:id="@+id/btnTodoApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
+        android:text="TodoApp"
+        />
 </LinearLayout>
