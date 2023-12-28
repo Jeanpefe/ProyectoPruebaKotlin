@@ -42,7 +42,7 @@ class TodoActivity : AppCompatActivity() {
         rvCategories.adapter = categoriesAdapter
 
         tasksAdapter = TasksAdapter(tasks)
-        rvTasks.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = tasksAdapter
     }
 }

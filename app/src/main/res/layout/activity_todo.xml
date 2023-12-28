@@ -33,14 +33,15 @@
         android:layout_height="wrap_content" />
 
     <TextView
+        style="@style/TodoSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/todo_tasks"
-        style="@style/TodoSubtitle"/>
+        android:text="@string/todo_tasks" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTasks"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp" />
 </LinearLayout>
