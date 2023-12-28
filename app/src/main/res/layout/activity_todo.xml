@@ -39,4 +39,8 @@
         android:text="@string/todo_tasks"
         style="@style/TodoSubtitle"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
