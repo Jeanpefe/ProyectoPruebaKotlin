@@ -5,6 +5,10 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -44,7 +48,24 @@ class TodoActivity : AppCompatActivity() {
     private fun showDialog() {
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.dialog_task)
+
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) //Para que no se vea fondo blanco detras del cardView al tener borde
+        val btnAddTask:Button = dialog.findViewById<Button>(R.id.btnAddTask)
+        val edTask:EditText = dialog.findViewById(R.id.etTask)
+        val rgCategories: RadioGroup = dialog.findViewById(R.id.rgCategories)
+
+        btnAddTask.setOnClickListener {
+            val radioButtonSelectedId = rgCategories.checkedRadioButtonId
+            val selectedRadioButton:RadioButton = dialog.findViewById(radioButtonSelectedId)
+            val currentCategory:TaskCategory = when(selectedRadioButton.text) {
+                "Negocios" -> TaskCategory.Business
+                "Personal" -> TaskCategory.Personal
+                else -> TaskCategory.Other //Si se poner "Otro" da error por no cubrir todos los casos
+            }
+            tasks.add(Task(edTask.text.toString(), currentCategory))
+            updateTasks()
+            dialog.hide()
+        }
         dialog.show()
     }
 
@@ -62,5 +83,10 @@ class TodoActivity : AppCompatActivity() {
         tasksAdapter = TasksAdapter(tasks)
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = tasksAdapter
+    }
+
+    private fun updateTasks(){
+        //tasksAdapter.notifyItemInserted(tasks.size) <- Forma mas optima, pero nos iteresa usar el DataSetChanged para despues
+        tasksAdapter.notifyDataSetChanged()
     }
 }
