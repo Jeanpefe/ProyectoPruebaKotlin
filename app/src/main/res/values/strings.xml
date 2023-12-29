@@ -18,4 +18,5 @@
     <string name="todo_personal">Personal</string>
     <string name="todo_business">Negocios</string>
     <string name="todo_others">Otro</string>
+    <string name="todo_create_task">Crear tarea</string>
 </resources>

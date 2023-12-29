@@ -1,9 +1,13 @@
 package com.jesus.androidkotlin.todoapp
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.jesus.androidkotlin.R
 
 class TodoActivity : AppCompatActivity() {
@@ -23,17 +27,31 @@ class TodoActivity : AppCompatActivity() {
 
     private lateinit var rvTasks: RecyclerView
     private lateinit var tasksAdapter: TasksAdapter
+
+    private lateinit var fabAddTask: FloatingActionButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo)
         initComponent()
         initUI()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        fabAddTask.setOnClickListener{ showDialog() }
+    }
+
+    private fun showDialog() {
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.dialog_task)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) //Para que no se vea fondo blanco detras del cardView al tener borde
+        dialog.show()
     }
 
     private fun initComponent() {
         rvCategories = findViewById(R.id.rvCategories)
         rvTasks = findViewById(R.id.rvTasks)
-
+        fabAddTask = findViewById(R.id.fabAddTask)
     }
 
     private fun initUI() {
