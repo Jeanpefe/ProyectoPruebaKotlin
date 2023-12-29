@@ -16,9 +16,7 @@ import com.jesus.androidkotlin.R
 
 class TodoActivity : AppCompatActivity() {
     private val categories = listOf(
-        TaskCategory.Business,
-        TaskCategory.Personal,
-        TaskCategory.Other
+        TaskCategory.Business, TaskCategory.Personal, TaskCategory.Other
     )
 
     private val tasks = mutableListOf<Task>(
@@ -42,7 +40,7 @@ class TodoActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        fabAddTask.setOnClickListener{ showDialog() }
+        fabAddTask.setOnClickListener { showDialog() }
     }
 
     private fun showDialog() {
@@ -50,21 +48,24 @@ class TodoActivity : AppCompatActivity() {
         dialog.setContentView(R.layout.dialog_task)
 
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT)) //Para que no se vea fondo blanco detras del cardView al tener borde
-        val btnAddTask:Button = dialog.findViewById<Button>(R.id.btnAddTask)
-        val edTask:EditText = dialog.findViewById(R.id.etTask)
+        val btnAddTask: Button = dialog.findViewById<Button>(R.id.btnAddTask)
+        val edTask: EditText = dialog.findViewById(R.id.etTask)
         val rgCategories: RadioGroup = dialog.findViewById(R.id.rgCategories)
 
         btnAddTask.setOnClickListener {
-            val radioButtonSelectedId = rgCategories.checkedRadioButtonId
-            val selectedRadioButton:RadioButton = dialog.findViewById(radioButtonSelectedId)
-            val currentCategory:TaskCategory = when(selectedRadioButton.text) {
-                "Negocios" -> TaskCategory.Business
-                "Personal" -> TaskCategory.Personal
-                else -> TaskCategory.Other //Si se poner "Otro" da error por no cubrir todos los casos
+            val taskDescription = edTask.text.toString()
+            if (taskDescription.isNotEmpty()) {
+                val radioButtonSelectedId = rgCategories.checkedRadioButtonId
+                val selectedRadioButton: RadioButton = dialog.findViewById(radioButtonSelectedId)
+                val currentCategory: TaskCategory = when (selectedRadioButton.text) {
+                    getString(R.string.todo_business) -> TaskCategory.Business
+                    getString(R.string.todo_personal) -> TaskCategory.Personal
+                    else -> TaskCategory.Other //Si se poner "Otro" da error por no cubrir todos los casos
+                }
+                tasks.add(Task(taskDescription, currentCategory))
+                updateTasks()
+                dialog.hide()
             }
-            tasks.add(Task(edTask.text.toString(), currentCategory))
-            updateTasks()
-            dialog.hide()
         }
         dialog.show()
     }
@@ -77,7 +78,8 @@ class TodoActivity : AppCompatActivity() {
 
     private fun initUI() {
         categoriesAdapter = CategoriesAdapter(categories)
-        rvCategories.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        rvCategories.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
 
         tasksAdapter = TasksAdapter(tasks)
@@ -85,7 +87,7 @@ class TodoActivity : AppCompatActivity() {
         rvTasks.adapter = tasksAdapter
     }
 
-    private fun updateTasks(){
+    private fun updateTasks() {
         //tasksAdapter.notifyItemInserted(tasks.size) <- Forma mas optima, pero nos iteresa usar el DataSetChanged para despues
         tasksAdapter.notifyDataSetChanged()
     }
