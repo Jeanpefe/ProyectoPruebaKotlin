@@ -14,4 +14,8 @@
     <string name="todo_title">Quehaceres App</string>
     <string name="todo_categories">Categorías</string>
     <string name="todo_tasks">Tareas</string>
+    <string name="todo_dialog_add_task">Añade una tarea</string>
+    <string name="todo_personal">Personal</string>
+    <string name="todo_business">Negocios</string>
+    <string name="todo_others">Otro</string>
 </resources>
