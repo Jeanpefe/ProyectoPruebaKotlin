@@ -1,5 +1,7 @@
 package com.jesus.androidkotlin.todoapp
 
+import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Paint
 import android.view.View
 import android.widget.CheckBox
@@ -19,6 +21,16 @@ class TasksViewHolder(view:View) : RecyclerView.ViewHolder(view) {
             tvTask.paintFlags = tvTask.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
 
+        cbTask.isChecked = task.isSelected
+
+        val categoryColor = when(task.category) {
+            TaskCategory.Business -> R.color.todo_business_category
+            TaskCategory.Other -> R.color.todo_other_category
+            TaskCategory.Personal -> R.color.todo_personal_category
+        }
+        cbTask.buttonTintList = ColorStateList.valueOf(
+            ContextCompat.getColor(cbTask.context, categoryColor)
+        )
         tvTask.text = task.name
     }
 }
