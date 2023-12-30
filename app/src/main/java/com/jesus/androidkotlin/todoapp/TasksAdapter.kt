@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jesus.androidkotlin.R
 
-class TasksAdapter(private val tasks:List<Task>) :RecyclerView.Adapter<TasksViewHolder>() {
+class TasksAdapter(private val tasks:List<Task>, private val onTaskSelected: (Int) -> Unit) :RecyclerView.Adapter<TasksViewHolder>() {
     //Cuando vayamos a crear el adapter para pintar el RecyclerView, tenemos que pasarle una lista
     //Es el que nos permite pintar las vistas
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TasksViewHolder {
@@ -24,5 +24,6 @@ class TasksAdapter(private val tasks:List<Task>) :RecyclerView.Adapter<TasksView
 
     override fun onBindViewHolder(holder: TasksViewHolder, position: Int) {
         holder.render(tasks[position])
+        holder.itemView.setOnClickListener{onTaskSelected(position)}
     }
 }

@@ -82,11 +82,15 @@ class TodoActivity : AppCompatActivity() {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvCategories.adapter = categoriesAdapter
 
-        tasksAdapter = TasksAdapter(tasks)
+        tasksAdapter = TasksAdapter(tasks) { position -> onItemSelected(position) }
         rvTasks.layoutManager = LinearLayoutManager(this)
         rvTasks.adapter = tasksAdapter
     }
 
+    private fun onItemSelected(position:Int) {
+        tasks[position].isSelected = !tasks[position].isSelected
+        updateTasks()
+    }
     private fun updateTasks() {
         //tasksAdapter.notifyItemInserted(tasks.size) <- Forma mas optima, pero nos iteresa usar el DataSetChanged para despues
         tasksAdapter.notifyDataSetChanged()
