@@ -20,6 +20,7 @@ class TasksViewHolder(view:View) : RecyclerView.ViewHolder(view) {
         } else {
             tvTask.paintFlags = tvTask.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
+        //TODO ver como hacer que se pueda pulsar el boton. Ahora mismo hace cosas raras
 
         cbTask.isChecked = task.isSelected
 
